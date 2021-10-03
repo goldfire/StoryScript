@@ -8,13 +8,13 @@
 ## Usage
 To use as a CLI:
 
-```
+```bash
 > node StoryScript /absolute/path/to/script.txt
 ```
 
 To use in a Node.js project:
 
-```
+```javascript
 const {parseScript} = require('story-script');
 
 const scriptFile = fs.readFileSync('/path/to/script.txt', 'utf8');
