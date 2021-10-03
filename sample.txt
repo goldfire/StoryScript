@@ -1,0 +1,199 @@
+EXT. SCENE HEADING - DAY 1 - AFTERNOON - CALM
+Jack then yells to the two Men he’s with to take the Tourniquet Man to safety -- and Jack RUNS -- OVER THE WING, 18 BEHIND THE MONSTROUS REVVING ENGINE -- 18 over to the Australian Pregnant Woman (CLAIRE) -- he helps her up -- helps her walk -- but she stumbles again, strains:
+
+CLAIRE
+(scared)
+I’m having contractions--
+
+JACK
+That’s not ideal...
+(beat)
+How far apart are they?
+
+/* This is a basic conditional example. */
+
+**{TestFact}**
+
+CLAIRE
+I don’t know, a few of ‘em just happened.
+
+**{}**
+
+JACK
+How many months pregnant are you?
+
+JACK (IDLE)
+We could end up out here a while.
+
+/* This is a simple comment that might be used to explain the choice below.. */
+
+**= 1. Choice #1**
+*{TestScene_Choice01_01}*
+**= 2. Choice #2**
+*{TestScene_Choice01_02}*
+**= 3. Choice #3**
+*{TestScene_Choice01_03}*
+**= 4. [silence]**
+*{TestScene_Choice01_Silence}*
+
+**{TestScene_Choice01_01}**
+
+CLAIRE
+Almost eight months.
+
+JACK
+Listen to me. Listen to me, you’re gonna be okay... do you understand? But you need to lie absolutely (still)--
+
+**{}**
+
+**{TestScene_Choice01_02}**
+
+CLAIRE
+That seems sort of personal!
+
+JACK
+Listen to me! Now’s not the time. You’ll be okay... just, you need to lie (still)--
+
+**{}**
+
+**{TestScene_Choice01_03}**
+
+CLAIRE
+What’s that matter now?
+
+JACK
+You’re going to be fine... do you understand? We just need to get you out (of)--
+
+**{}**
+
+**{TestScene_Choice01_Silence}**
+
+JACK
+You’re going to be fine, I just need you to listen now. Just stay (still)--
+
+**{}**
+
+CLAIRE
+(wincing in pain)
+There... God, that’s a big one!
+
+/* Getting more complex, a nested choice block. */
+
+**{TestScene_Choice01_Silence}**
+
+JACK
+(looks up, calls out)
+YOU! COME HERE!
+
+JACK (O.S.) (IDLE)
+I need you to get this woman away from these fumes!
+
+  **= 1. Another Choice #1**
+  *{TestScene_Choice02_01}*
+  **= 2. Another Choice #2**
+  *{TestScene_Choice02_02}*
+  **{TestFactForChoice}**
+    **= 3. Another Choice #3**
+    *{TestScene_Choice02_03}*
+  **{}**
+  **= 4. Another Choice #4**
+  *{TestScene_Choice02_04}*
+  **= 5. [silence]**
+  *{TestScene_Choice02_Silence}*
+
+  **{TestScene_Choice02_01}**
+
+And Hurley does -- in this moment he might just follow anyone anywhere -- Jack rips off his watch, gives it to him:
+
+HURLEY
+Okay-- Okay--
+
+JACK
+I’ll be back soon.
+
+  **{}**
+
+  **{TestScene_Choice02_02}**
+
+HURLEY
+You gotta be kidding me--
+
+JACK
+Take her over there! Then, stay with her! Don’t let her move!
+
+  **{}**
+
+  **{TestScene_Choice02_03}**
+
+HURLEY
+Hey, what’s your name?!
+
+JACK
+Look, if her contractions occur closer than three minutes apart, call out for me!
+(beat)
+Jack!
+
+  **{}**
+
+  **{TestScene_Choice02_Silence}**
+
+JACK
+I need your help! Stay here with her and I’ll be back!
+
+  **{}**
+
+**{}**
+
+This is some more test action descriptions. Next are some more complex compound/nested conditional blocks.
+
+**{TestFact AND TestScene_Choice01_03}**
+
+JACK
+Stop-- her head’s not tilted far back enough-- you’re blowing air into her stomach--
+
+  **{TestFact02 AND NOT TestScene_Choice01_01}**
+
+BOONE
+Are you sure? I’m a lifeguard! I’m licensed!
+
+  **{}**
+
+**{}**
+
+**{TestFact OR TestScene_Choice01_03}**
+
+JACK
+You seriously need to think about giving back that license...
+
+**{}**
+
+**{TestFact AND TestScene_Choice01_03 OR TestFact2}**
+
+BOONE
+That’s exactly what I was doing!
+
+**{}**
+
+/*
+
+This is a multi-line comment.
+
+Just to see if we can trip it up! 👺
+
+*/
+
+**{BARK BarkFact AND BarkFact2}**
+
+BOONE (O.S.)
+Hey man, she’s still not breathing!
+(beat)
+Maybe we need to do one of those hole things-- where you stick a pen in her throat?
+
+**{}**
+
+**{OPEN OpenFact}**
+
+JACK
+Yeah, good idea-- you go get me a pen!
+
+**{}**
