@@ -2,8 +2,8 @@
 **StoryScript** is a fork of the standard screenplay format to be used with interactive games, originally designed for use in the game [Arctic Awakening](https://arcticawakening.com).
 
 ## Installation
-* Install with [npm](https://www.npmjs.com/package/story-script): `npm install story-script`
-* Install with [Yarn](https://yarnpkg.com/en/package/story-script): `yarn add story-script`
+* Install with [npm](https://www.npmjs.com/package/@goldfire/storyscript): `npm install @goldfire/storyscript`
+* Install with [Yarn](https://yarnpkg.com/en/package/@goldfire/storyscript): `yarn add @goldfire/storyscript`
 
 ## Usage
 To use as a CLI:
@@ -15,7 +15,7 @@ To use as a CLI:
 To use in a Node.js project:
 
 ```javascript
-const {parseScript} = require('story-script');
+const {parseScript} = require('@goldfire/storyscript');
 
 const scriptFile = fs.readFileSync('/path/to/script.txt', 'utf8');
 const ast = parseScript(scriptFile);

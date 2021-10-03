@@ -1,5 +1,5 @@
 {
-  "name": "story-script",
+  "name": "@goldfire/storyscript",
   "displayName": "StoryScript",
   "version": "1.0.0",
   "description": "Lexer and parser for StoryScript game screenplay format.",
