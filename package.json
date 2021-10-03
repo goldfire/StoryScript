@@ -1,7 +1,7 @@
 {
   "name": "story-script",
   "displayName": "StoryScript",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Lexer and parser for StoryScript game screenplay format.",
   "homepage": "https://github.com/goldfire/storyscript",
   "author": "James Simpson <james@goldfirestudios.com> (https://goldfirestudios.com)",

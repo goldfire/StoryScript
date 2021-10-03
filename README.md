@@ -23,6 +23,9 @@ const ast = parseScript(scriptFile);
 console.log(JSON.stringify(ast, null, 2));
 ```
 
+## StoryScript Syntax
+TODO
+
 ## License
 Copyright (c) 2021 [James Simpson](https://twitter.com/GoldFireStudios) and [GoldFire Studios, Inc.](https://goldfirestudios.com)
 
