@@ -9,7 +9,7 @@ const path = require('path');
 const test = require('ava');
 const Lexer = require('../src/lexer');
 const types = require('../src/types');
-const script = fs.readFileSync(path.join(__dirname, '../sample.txt'), 'utf8');
+const script = fs.readFileSync(path.join(__dirname, './sample.txt'), 'utf8');
 
 test('all tokens generated', (t) => {
   const lexer = new Lexer(script);
