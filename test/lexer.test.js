@@ -16,7 +16,7 @@ test('all tokens generated', (t) => {
   const tokens = lexer.run();
 
   t.deepEqual(tokens, [
-    {type: types.SCENE, line: 1, value: 'EXT. SCENE HEADING - DAY 1 - AFTERNOON - CALM'},
+    {type: types.SCENE, line: 1, value: 'EXT. SAMPLE SCENE - DAY 1 - AFTERNOON - CALM'},
     {type: types.STRING, line: 2, value: 'Jack then yells to the two Men he\'s with to take the Tourniquet Man to safety -- and Jack RUNS -- OVER THE WING, 18 BEHIND THE MONSTROUS REVVING ENGINE -- 18 over to the Australian Pregnant Woman (CLAIRE) -- he helps her up -- helps her walk -- but she stumbles again, strains:'},
     {type: types.EMPTYLINE, line: 3},
     {type: types.STRING, line: 4, value: 'CLAIRE'},

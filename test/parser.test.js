@@ -10,7 +10,7 @@ const Parser = require('../src/parser');
 const types = require('../src/types');
 
 test('parse a character', (t) => {
-  const parser = new Parser(new Lexer(`EXT. SCENE HEADING - DAY 1 - AFTERNOON - CALM
+  const parser = new Parser(new Lexer(`EXT. SAMPLE SCENE - DAY 1 - AFTERNOON - CALM
 Some test action descriptions to start the "script."
 
 CLAIRE
@@ -31,7 +31,7 @@ I’m having contractions--`).run());
 });
 
 test('parse a dialogue line', (t) => {
-  const parser = new Parser(new Lexer(`EXT. SCENE HEADING - DAY 1 - AFTERNOON - CALM
+  const parser = new Parser(new Lexer(`EXT. SAMPLE SCENE - DAY 1 - AFTERNOON - CALM
 Some test action descriptions to start the "script."
 
 CLAIRE
@@ -65,7 +65,7 @@ I’m having contractions--`).run());
 });
 
 test('parse an action description', (t) => {
-  const parser = new Parser(new Lexer(`EXT. SCENE HEADING - DAY 1 - AFTERNOON - CALM
+  const parser = new Parser(new Lexer(`EXT. SAMPLE SCENE - DAY 1 - AFTERNOON - CALM
 Some test action descriptions to start the "script."
 
 CLAIRE
@@ -94,7 +94,7 @@ I’m having contractions--`).run());
 });
 
 test('parse a scene header', (t) => {
-  const parser = new Parser(new Lexer(`EXT. SCENE HEADING - DAY 1 - AFTERNOON - CALM
+  const parser = new Parser(new Lexer(`EXT. SAMPLE SCENE - DAY 1 - AFTERNOON - CALM
 Some test action descriptions to start the "script."
 
 CLAIRE
@@ -117,7 +117,7 @@ I’m having contractions--`).run());
   // Check dialogue node creation.
   t.deepEqual(parser.curNode, {
     type: 'scene',
-    value: 'SCENE HEADING',
+    value: 'SAMPLE SCENE',
     meta: {
       day: 1,
       time: 'AFTERNOON',
@@ -127,7 +127,7 @@ I’m having contractions--`).run());
 });
 
 test('parse a choice block', (t) => {
-  const parser = new Parser(new Lexer(`EXT. SCENE HEADING - DAY 1 - AFTERNOON - CALM
+  const parser = new Parser(new Lexer(`EXT. SAMPLE SCENE - DAY 1 - AFTERNOON - CALM
 Some test action descriptions to start the "script."
 
 **= 1. Choice #1**
@@ -201,7 +201,7 @@ Some test action descriptions to start the "script."
 });
 
 test('parse a conditional', (t) => {
-  const parser = new Parser(new Lexer(`EXT. SCENE HEADING - DAY 1 - AFTERNOON - CALM
+  const parser = new Parser(new Lexer(`EXT. SAMPLE SCENE - DAY 1 - AFTERNOON - CALM
 Some test action descriptions to start the "script."
 
 CLAIRE
@@ -255,7 +255,7 @@ I don’t know, a few of ‘em just happened.
 });
 
 test('parse the end of a conditional', (t) => {
-  const parser = new Parser(new Lexer(`EXT. SCENE HEADING - DAY 1 - AFTERNOON - CALM
+  const parser = new Parser(new Lexer(`EXT. SAMPLE SCENE - DAY 1 - AFTERNOON - CALM
 Some test action descriptions to start the "script."
 
 CLAIRE
