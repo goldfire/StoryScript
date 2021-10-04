@@ -28,15 +28,15 @@ We could end up out here a while.
 /* This is a simple comment that might be used to explain the choice below.. */
 
 **= 1. Choice #1**
-*{TestScene_Choice01_01}*
+*{SampleScene_Choice01_01}*
 **= 2. Choice #2**
-*{TestScene_Choice01_02}*
+*{SampleScene_Choice01_02}*
 **= 3. Choice #3**
-*{TestScene_Choice01_03}*
+*{SampleScene_Choice01_03}*
 **= 4. [silence]**
-*{TestScene_Choice01_Silence}*
+*{SampleScene_Choice01_Silence}*
 
-**{TestScene_Choice01_01}**
+**{SampleScene_Choice01_01}**
 
 CLAIRE
 Almost eight months.
@@ -46,7 +46,7 @@ Listen to me. Listen to me, you’re gonna be okay... do you understand? But you
 
 **{}**
 
-**{TestScene_Choice01_02}**
+**{SampleScene_Choice01_02}**
 
 CLAIRE
 That seems sort of personal!
@@ -56,7 +56,7 @@ Listen to me! Now’s not the time. You’ll be okay... just, you need to lie (s
 
 **{}**
 
-**{TestScene_Choice01_03}**
+**{SampleScene_Choice01_03}**
 
 CLAIRE
 What’s that matter now?
@@ -66,7 +66,7 @@ You’re going to be fine... do you understand? We just need to get you out (of)
 
 **{}**
 
-**{TestScene_Choice01_Silence}**
+**{SampleScene_Choice01_Silence}**
 
 JACK
 You’re going to be fine, I just need you to listen now. Just stay (still)--
@@ -79,7 +79,7 @@ There... God, that’s a big one!
 
 /* Getting more complex, a nested choice block. */
 
-**{TestScene_Choice01_Silence}**
+**{SampleScene_Choice01_Silence}**
 
 JACK
 (looks up, calls out)
@@ -89,19 +89,19 @@ JACK (O.S.) (IDLE)
 I need you to get this woman away from these fumes!
 
   **= 1. Another Choice #1**
-  *{TestScene_Choice02_01}*
+  *{SampleScene_Choice02_01}*
   **= 2. Another Choice #2**
-  *{TestScene_Choice02_02}*
+  *{SampleScene_Choice02_02}*
   **{TestFactForChoice}**
     **= 3. Another Choice #3**
-    *{TestScene_Choice02_03}*
+    *{SampleScene_Choice02_03}*
   **{}**
   **= 4. Another Choice #4**
-  *{TestScene_Choice02_04}*
+  *{SampleScene_Choice02_04}*
   **= 5. [silence]**
-  *{TestScene_Choice02_Silence}*
+  *{SampleScene_Choice02_Silence}*
 
-  **{TestScene_Choice02_01}**
+  **{SampleScene_Choice02_01}**
 
 And Hurley does -- in this moment he might just follow anyone anywhere -- Jack rips off his watch, gives it to him:
 
@@ -113,7 +113,7 @@ I’ll be back soon.
 
   **{}**
 
-  **{TestScene_Choice02_02}**
+  **{SampleScene_Choice02_02}**
 
 HURLEY
 You gotta be kidding me--
@@ -123,7 +123,7 @@ Take her over there! Then, stay with her! Don’t let her move!
 
   **{}**
 
-  **{TestScene_Choice02_03}**
+  **{SampleScene_Choice02_03}**
 
 HURLEY
 Hey, what’s your name?!
@@ -135,7 +135,7 @@ Jack!
 
   **{}**
 
-  **{TestScene_Choice02_Silence}**
+  **{SampleScene_Choice02_Silence}**
 
 JACK
 I need your help! Stay here with her and I’ll be back!
@@ -146,12 +146,12 @@ I need your help! Stay here with her and I’ll be back!
 
 This is some more test action descriptions. Next are some more complex compound/nested conditional blocks.
 
-**{TestFact AND TestScene_Choice01_03}**
+**{TestFact AND SampleScene_Choice01_03}**
 
 JACK
 Stop-- her head’s not tilted far back enough-- you’re blowing air into her stomach--
 
-  **{TestFact02 AND NOT TestScene_Choice01_01}**
+  **{TestFact02 AND NOT SampleScene_Choice01_01}**
 
 BOONE
 Are you sure? I’m a lifeguard! I’m licensed!
@@ -160,14 +160,14 @@ Are you sure? I’m a lifeguard! I’m licensed!
 
 **{}**
 
-**{TestFact OR TestScene_Choice01_03}**
+**{TestFact OR SampleScene_Choice01_03}**
 
 JACK
 You seriously need to think about giving back that license...
 
 **{}**
 
-**{TestFact AND TestScene_Choice01_03 OR TestFact2}**
+**{TestFact AND SampleScene_Choice01_03 OR TestFact2}**
 
 BOONE
 That’s exactly what I was doing!
