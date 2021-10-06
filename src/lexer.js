@@ -37,7 +37,7 @@ class Lexer {
     // Loop through the script and reach each character one at a time.
     for (this.i = 0; this.i < this.chars.length; this.i += 1) {
       // Compose the new value.
-      this.value += this.chars[this.i].replace(/(’|‘)/, '\'');
+      this.value += this.chars[this.i].replace(/(’|‘)/, '\'').replace(/(“|”)/, '\"');
 
       // Filter out anything between comment blocks.
       if (this.isComment()) continue;
