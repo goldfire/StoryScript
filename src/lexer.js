@@ -68,7 +68,7 @@ class Lexer {
     const token = {type, line};
 
     if (typeof value !== 'undefined') {
-      token.value = value.replace('\n', '');
+      token.value = value.replace('\r?\n', '');
     }
 
     if (this.hasScene) {
@@ -93,7 +93,7 @@ class Lexer {
   isComment() {
     if (this.value.startsWith('/*')) {
       // If this is the full comment, reset and move to the next line.
-      if (this.value.match(/\/\*(\*(?!\/)|[^*])*\*\/\n/)) {
+      if (this.value.match(/\/\*(\*(?!\/)|[^*])*\*\/\r?\n/)) {
         this.value = '';
       }
 
@@ -113,7 +113,7 @@ class Lexer {
    * @return {Boolean}
    */
   getScene() {
-    if (this.value.match(/(EXT|INT)\.(.*)\n/) && this.value.toUpperCase() === this.value) {
+    if (this.value.match(/(EXT|INT)\.(.*)\r?\n/) && this.value.toUpperCase() === this.value) {
       this.hasScene = true;
       this.createToken(types.SCENE, this.line, this.value);
       this.nextLine();
@@ -128,12 +128,12 @@ class Lexer {
    * Check if this is an empty line and insert the token.
    *
    * An empty line is defined by:
-   *   * A full line that is nothing but a new line character: \n.
+   *   * A full line that is nothing but a new line character: \r?\n.
    * 
    * @return {Boolean}
    */
   getEmptyLine() {
-    if (this.value === '\n') {
+    if (this.value === '\r?\n') {
       // Only insert a new line if the previous wasn't also a new line.
       const lastToken = this.tokens[this.tokens.length - 1];
       if (!lastToken || (lastToken && lastToken.type !== types.EMPTYLINE)) {
@@ -154,12 +154,12 @@ class Lexer {
    *
    * A parenthetical is defined by:
    *   * Opens line with : (.
-   *   * Closes line with ) and a newline (\n).
+   *   * Closes line with ) and a newline (\r?\n).
    * 
    * @return {Boolean}
    */
   getParenthetical() {
-    const value = this.value.match(/^\((.*?)\)\n/);
+    const value = this.value.match(/^\((.*?)\)\r?\n/);
     if (value) {
       this.createToken(types.PARENTHETICAL, this.line, value[1]);
       this.nextLine();
@@ -180,7 +180,7 @@ class Lexer {
    * @return {Boolean}
    */
   getConditional() {
-    const value = this.value.trimStart().match(/^\*\*{(.*?)}\*\*\n/);
+    const value = this.value.trimStart().match(/^\*\*{(.*?)}\*\*\r?\n/);
     if (value) {
       // Don't allow "OR NOT" since our rules system can't handle that.
       // TODO: Come up with better error handling.
@@ -230,7 +230,7 @@ class Lexer {
   getConditionalEnd() {
     const value = this.value.trimStart();
     const isEOF = this.i === this.chars.length - 1;
-    if (value === '**{}**\n' || (value === '**{}**' && isEOF)) {
+    if (value === '**{}**\r?\n' || (value === '**{}**' && isEOF)) {
       this.createToken(types.CONDITIONAL_END, this.line);
       this.nextLine();
 
@@ -250,7 +250,7 @@ class Lexer {
    * @return {Boolean}
    */
   getChoice() {
-    const value = this.value.trimStart().match(/^\*\*= [1-9]. (.*?)\*\*\n/);
+    const value = this.value.trimStart().match(/^\*\*= [1-9]. (.*?)\*\*\r?\n/);
     if (value) {
       this.createToken(types.CHOICE, this.line, value[1]);
       this.nextLine();
@@ -271,7 +271,7 @@ class Lexer {
    * @return {Boolean}
    */
   getChoiceFact() {
-    const value = this.value.trimStart().match(/^\*{(.*?)}\*\n/);
+    const value = this.value.trimStart().match(/^\*{(.*?)}\*\r?\n/);
     if (value) {
       this.createToken(types.CHOICE_FACT, this.line, value[1]);
       this.nextLine();
@@ -288,7 +288,7 @@ class Lexer {
    */
   getString() {
     const isEOF = this.i === this.chars.length - 1;
-    if (this.value.endsWith('\n') || isEOF) {
+    if (this.value.endsWith('\r?\n') || isEOF) {
       this.createToken(types.STRING, this.line, this.value);
       this.nextLine();
 
