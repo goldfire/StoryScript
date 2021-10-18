@@ -24,7 +24,7 @@ const parseScript = (script) => {
 };
 
 // If a filename is passed in the arguments, run the script.
-if (process.argv[2]) {
+if (process.argv[2] && !module.parent) {
   const ast = parseScript(fs.readFileSync(process.argv[2], 'utf8'));
   console.log(JSON.stringify(ast, null, 2));
 }
