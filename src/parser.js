@@ -20,6 +20,11 @@ class Parser {
     this.ast = {
       type: 'root',
       characters: [],
+      stats: {
+        lines: 0,
+        words: 0,
+        characters: {},
+      },
       scenes: [],
       children: [],
     };
@@ -91,6 +96,21 @@ class Parser {
     }
     this.parentNode.children.push(data);
     this.curNode = this.parentNode.children[this.parentNode.children.length - 1];
+
+    // Track counts of dialogue lines.
+    if (type === 'dialogue') {
+      // Overall stats.
+      const words = value.split(' ').length;
+      this.ast.stats.lines += 1;
+      this.ast.stats.words += words;
+
+      // Character stats.
+      if (!this.ast.stats.characters[this.character]) {
+        this.ast.stats.characters[this.character] = {lines: 0, words: 0};
+      }
+      this.ast.stats.characters[this.character].lines += 1;
+      this.ast.stats.characters[this.character].words += words;
+    }
   }
 
   /**
