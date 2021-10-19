@@ -68,7 +68,7 @@ class Lexer {
    * @param  {String} value Token value.
    */
   createToken(type, line, value) {
-    const token = { type, line };
+    const token = {type, line};
 
     if (typeof value !== 'undefined') {
       token.value = value.replace('\n', '');
