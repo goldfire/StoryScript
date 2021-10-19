@@ -37,7 +37,10 @@ class Lexer {
     // Loop through the script and reach each character one at a time.
     for (this.i = 0; this.i < this.chars.length; this.i += 1) {
       // Compose the new value.
-      this.value += this.chars[this.i].replace(/(’|‘)/, '\'').replace(/(“|”)/, '\"');
+      this.value += this.chars[this.i]
+        .replace(/(’|‘)/, "'")
+        .replace(/(“|”)/, '"')
+        .replace('\r', '');
 
       // Filter out anything between comment blocks.
       if (this.isComment()) continue;
@@ -65,7 +68,7 @@ class Lexer {
    * @param  {String} value Token value.
    */
   createToken(type, line, value) {
-    const token = {type, line};
+    const token = { type, line };
 
     if (typeof value !== 'undefined') {
       token.value = value.replace('\n', '');
@@ -109,11 +112,14 @@ class Lexer {
    * A scene header is defined by:
    *   * All caps.
    *   * Begins with either EXT. or INT.
-   * 
+   *
    * @return {Boolean}
    */
   getScene() {
-    if (this.value.match(/(EXT|INT)\.(.*)\n/) && this.value.toUpperCase() === this.value) {
+    if (
+      this.value.match(/(EXT|INT)\.(.*)\n/) &&
+      this.value.toUpperCase() === this.value
+    ) {
       this.hasScene = true;
       this.createToken(types.SCENE, this.line, this.value);
       this.nextLine();
@@ -129,7 +135,7 @@ class Lexer {
    *
    * An empty line is defined by:
    *   * A full line that is nothing but a new line character: \n.
-   * 
+   *
    * @return {Boolean}
    */
   getEmptyLine() {
@@ -155,7 +161,7 @@ class Lexer {
    * A parenthetical is defined by:
    *   * Opens line with : (.
    *   * Closes line with ) and a newline (\n).
-   * 
+   *
    * @return {Boolean}
    */
   getParenthetical() {
@@ -176,7 +182,7 @@ class Lexer {
    * A conditional end is defined by:
    *   * Starts line with **{.
    *   * Ends line with **}.
-   * 
+   *
    * @return {Boolean}
    */
   getConditional() {
@@ -204,9 +210,7 @@ class Lexer {
         .split(' AND ');
       for (let i = 0; i < conditions.length; i += 1) {
         // Handle OR and NOT statements in the formatting.
-        const cond = conditions[i]
-          .replace(/ OR /g, '|')
-          .replace(/NOT /g, '!');
+        const cond = conditions[i].replace(/ OR /g, '|').replace(/NOT /g, '!');
 
         // Insert the correct token type.
         this.createToken(type, this.line, cond);
@@ -224,7 +228,7 @@ class Lexer {
    *
    * A conditional end is defined by:
    *   * Marked with **{}**.
-   * 
+   *
    * @return {Boolean}
    */
   getConditionalEnd() {
@@ -246,7 +250,7 @@ class Lexer {
    * A choice option is defined by:
    *   * Opens with **= [1-9].
    *   * Closes with **.
-   * 
+   *
    * @return {Boolean}
    */
   getChoice() {
@@ -267,7 +271,7 @@ class Lexer {
    * A choice option fact is defined by:
    *   * Opens with *{.
    *   * Closes with }*.
-   * 
+   *
    * @return {Boolean}
    */
   getChoiceFact() {
