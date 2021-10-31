@@ -368,6 +368,15 @@ class Parser {
       return true;
     }
 
+    // If this is a conditional wrapped around the first choice option, make this a choice.
+    const next = this.tokens[this.i + 1] || {};
+    if (token.type === types.CONDITIONAL && this.parentNode.type !== 'choice' && next.type === types.CHOICE) {
+      this.createNode('choice');
+      this.parentNode = this.curNode;
+
+      return false;
+    }
+
     // If this is an empty line and we are currently in a choice block, jump up one level.
     if (this.parentNode.type === 'choice' && token.type === types.EMPTYLINE) {
       const choice = this.findParentOfType(this.ast, this.curNode, 'choice');;
