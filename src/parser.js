@@ -400,7 +400,16 @@ class Parser {
     ) {
       // Create the fact object with the correct value.
       const cond = {fact: token.value.replace('!', ''), value: 2};
-      if (token.value.endsWith('Trigger')) {
+      if (
+        token.value.endsWith('Trigger')
+        || token.value.endsWith('InHand')
+        || token.value.endsWith('Inventory')
+        || token.value.endsWith('Clicked')
+        || token.value.endsWith('OnHand')
+        || token.value.endsWith('Activated')
+        || token.value.endsWith('Examined')
+        || token.value.endsWith('Pressed')
+      ) {
         cond.value = 1;
       }
       if (token.value.startsWith('!')) {
