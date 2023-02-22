@@ -146,7 +146,7 @@ I need your help! Stay here with her and I’ll be back!
 
 This is some more test action descriptions. Next are some more complex compound/nested conditional blocks.
 
-**{TestFact AND SampleScene_Choice01_03}**
+**{TestFact = 3 AND SampleScene_Choice01_03}**
 
 JACK
 Stop-- her head’s not tilted far back enough-- you’re blowing air into her stomach--
@@ -167,7 +167,7 @@ You seriously need to think about giving back that license...
 
 **{}**
 
-**{TestFact AND SampleScene_Choice01_03 OR TestFact2}**
+**{TestFact >= 1 AND SampleScene_Choice01_03 OR TestFact2}**
 
 BOONE
 That’s exactly what I was doing!

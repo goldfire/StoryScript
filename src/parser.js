@@ -398,8 +398,14 @@ class Parser {
       || token.type === types.CONDITIONAL_BARK
       || token.type === types.CONDITIONAL_OPEN
     ) {
+      // Check for an explicit operator and value.
+      const operatorRegex = /([><=!]+\s*)(\d+)(?!\w)/;
+      const matches = token.value.match(operatorRegex);
+      const operator = matches ? matches[1].trim() : null;
+      const operatorValue = matches ? parseInt(matches[2], 10) : null;
+
       // Create the fact object with the correct value.
-      const cond = {fact: token.value.replace('!', ''), value: 2};
+      const cond = {fact: token.value.replace('!', '').replace(operatorRegex, '').trim(), value: 2};
       if (
         token.value.endsWith('Trigger')
         || token.value.endsWith('InHand')
@@ -414,6 +420,10 @@ class Parser {
       }
       if (token.value.startsWith('!')) {
         cond.value = 0;
+      }
+      if (operatorValue != null) {
+        cond.value = operatorValue;
+        cond.operator = operator;
       }
 
       // If the previous token is also a conditional, then include this value in that node.

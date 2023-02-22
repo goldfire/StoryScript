@@ -262,7 +262,7 @@ CLAIRE
 (scared)
 I’m having contractions--
 
-**{TestFact AND TestScene_Choice01_03}**
+**{TestFact = 3 AND TestScene_Choice01_03}**
 
 JACK
 Stop-- her head’s not tilted far back enough-- you’re blowing air into her stomach--
