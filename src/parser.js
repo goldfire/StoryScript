@@ -423,7 +423,7 @@ class Parser {
       }
       if (operatorValue != null) {
         cond.value = operatorValue;
-        cond.operator = operator;
+        cond.op = operator;
       }
 
       // If the previous token is also a conditional, then include this value in that node.
