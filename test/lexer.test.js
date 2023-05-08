@@ -204,6 +204,13 @@ test('all tokens generated', (t) => {
     {type: types.STRING, line: 182, value: 'JACK'},
     {type: types.STRING, line: 183, value: 'Yeah, good idea-- you go get me a pen!'},
     {type: types.EMPTYLINE, line: 184},
-    {type: types.CONDITIONAL_END, line: 185},
+    {type: types.CONDITIONAL, line: 185, value: 'ObjectInInventory'},
+    {type: types.EMPTYLINE, line: 186},
+    {type: types.STRING, line: 187, value: 'JACK'},
+    {type: types.STRING, line: 188, value: 'Oh-- here!'},
+    {type: types.EMPTYLINE, line: 189},
+    {type: types.CONDITIONAL_END, line: 190},
+    {type: types.EMPTYLINE, line: 191},
+    {type: types.CONDITIONAL_END, line: 192},
   ]);
 });

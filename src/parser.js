@@ -435,7 +435,8 @@ class Parser {
         if (token.type === types.CONDITIONAL_BARK) {
           meta = {bark: true};
         }
-        if (token.type === types.CONDITIONAL_OPEN) {
+        const parentIsOpen = this.parentNode && this.parentNode.meta && this.parentNode.meta.open;
+        if (token.type === types.CONDITIONAL_OPEN || parentIsOpen) {
           meta = {open: true};
         }
 

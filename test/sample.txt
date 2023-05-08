@@ -196,4 +196,11 @@ Maybe we need to do one of those hole things-- where you stick a pen in her thro
 JACK
 Yeah, good idea-- you go get me a pen!
 
+  **{ObjectInInventory}**
+
+JACK
+Oh-- here!
+
+  **{}**
+
 **{}**
