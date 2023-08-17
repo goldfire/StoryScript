@@ -79,7 +79,7 @@ There... God, that’s a big one!
 
 /* Getting more complex, a nested choice block. */
 
-**{SampleScene_Choice01_Silence}**
+**{OPEN SampleScene_Choice01_Silence}**
 
 JACK
 (looks up, calls out)

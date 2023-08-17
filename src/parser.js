@@ -59,8 +59,8 @@ class Parser {
       if (this.getDialogue(token)) continue;
       if (this.getAction(token)) continue;
       if (this.getScene(token)) continue;
-      if (this.getChoice(token)) continue;
       if (this.getConditional(token)) continue;
+      if (this.getChoice(token)) continue;
       if (this.getConditionalEnd(token)) continue;
     }
 

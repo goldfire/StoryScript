@@ -91,7 +91,7 @@ test('all tokens generated', (t) => {
     {type: types.PARENTHETICAL, line: 73, value: 'wincing in pain'},
     {type: types.STRING, line: 74, value: 'There... God, that\'s a big one!'},
     {type: types.EMPTYLINE, line: 75},
-    {type: types.CONDITIONAL, line: 76, value: 'SampleScene_Choice01_Silence'},
+    {type: types.CONDITIONAL_OPEN, line: 76, value: 'SampleScene_Choice01_Silence'},
     {type: types.EMPTYLINE, line: 77},
     {type: types.STRING, line: 78, value: 'JACK'},
     {type: types.PARENTHETICAL, line: 79, value: 'looks up, calls out'},
