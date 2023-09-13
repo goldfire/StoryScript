@@ -432,7 +432,8 @@ class Parser {
       } else {
         // Determine the meta data.
         let meta = null;
-        if (token.type === types.CONDITIONAL_BARK) {
+        const parentIsBark = this.parentNode && this.parentNode.meta && this.parentNode.meta.bark;
+        if (token.type === types.CONDITIONAL_BARK || parentIsBark) {
           meta = {bark: true};
         }
         const parentIsOpen = this.parentNode && this.parentNode.meta && this.parentNode.meta.open;
